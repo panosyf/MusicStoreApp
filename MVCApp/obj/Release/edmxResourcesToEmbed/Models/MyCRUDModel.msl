@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ChinookModelStoreContainer" CdmEntityContainer="ChinookEntities">
+    <EntitySetMapping Name="Albums">
+      <EntityTypeMapping TypeName="ChinookModel.Album">
+        <MappingFragment StoreEntitySet="Album">
+          <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ArtistId" ColumnName="ArtistId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Artists">
+      <EntityTypeMapping TypeName="ChinookModel.Artist">
+        <MappingFragment StoreEntitySet="Artist">
+          <ScalarProperty Name="ArtistId" ColumnName="ArtistId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="ChinookModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="SupportRepId" ColumnName="SupportRepId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="ChinookModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ReportsTo" ColumnName="ReportsTo" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genres">
+      <EntityTypeMapping TypeName="ChinookModel.Genre">
+        <MappingFragment StoreEntitySet="Genre">
+          <ScalarProperty Name="GenreId" ColumnName="GenreId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Invoices">
+      <EntityTypeMapping TypeName="ChinookModel.Invoice">
+        <MappingFragment StoreEntitySet="Invoice">
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="BillingAddress" ColumnName="BillingAddress" />
+          <ScalarProperty Name="BillingCity" ColumnName="BillingCity" />
+          <ScalarProperty Name="BillingState" ColumnName="BillingState" />
+          <ScalarProperty Name="BillingCountry" ColumnName="BillingCountry" />
+          <ScalarProperty Name="BillingPostalCode" ColumnName="BillingPostalCode" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InvoiceLines">
+      <EntityTypeMapping TypeName="ChinookModel.InvoiceLine">
+        <MappingFragment StoreEntitySet="InvoiceLine">
+          <ScalarProperty Name="InvoiceLineId" ColumnName="InvoiceLineId" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="TrackId" ColumnName="TrackId" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MediaTypes">
+      <EntityTypeMapping TypeName="ChinookModel.MediaType">
+        <MappingFragment StoreEntitySet="MediaType">
+          <ScalarProperty Name="MediaTypeId" ColumnName="MediaTypeId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Playlists">
+      <EntityTypeMapping TypeName="ChinookModel.Playlist">
+        <MappingFragment StoreEntitySet="Playlist">
+          <ScalarProperty Name="PlaylistId" ColumnName="PlaylistId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tracks">
+      <EntityTypeMapping TypeName="ChinookModel.Track">
+        <MappingFragment StoreEntitySet="Track">
+          <ScalarProperty Name="TrackId" ColumnName="TrackId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+          <ScalarProperty Name="MediaTypeId" ColumnName="MediaTypeId" />
+          <ScalarProperty Name="GenreId" ColumnName="GenreId" />
+          <ScalarProperty Name="Composer" ColumnName="Composer" />
+          <ScalarProperty Name="Milliseconds" ColumnName="Milliseconds" />
+          <ScalarProperty Name="Bytes" ColumnName="Bytes" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PlaylistTrack" TypeName="ChinookModel.PlaylistTrack" StoreEntitySet="PlaylistTrack">
+      <EndProperty Name="Playlist">
+        <ScalarProperty Name="PlaylistId" ColumnName="PlaylistId" />
+      </EndProperty>
+      <EndProperty Name="Track">
+        <ScalarProperty Name="TrackId" ColumnName="TrackId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ChinookModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Album">
+    <Key>
+      <PropertyRef Name="AlbumId" />
+    </Key>
+    <Property Name="AlbumId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="160" Nullable="false" />
+    <Property Name="ArtistId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Artist">
+    <Key>
+      <PropertyRef Name="ArtistId" />
+    </Key>
+    <Property Name="ArtistId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="120" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Company" Type="nvarchar" MaxLength="80" />
+    <Property Name="Address" Type="nvarchar" MaxLength="70" />
+    <Property Name="City" Type="nvarchar" MaxLength="40" />
+    <Property Name="State" Type="nvarchar" MaxLength="40" />
+    <Property Name="Country" Type="nvarchar" MaxLength="40" />
+    <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="24" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="24" />
+    <Property Name="Email" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="SupportRepId" Type="int" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="30" />
+    <Property Name="ReportsTo" Type="int" />
+    <Property Name="BirthDate" Type="datetime" />
+    <Property Name="HireDate" Type="datetime" />
+    <Property Name="Address" Type="nvarchar" MaxLength="70" />
+    <Property Name="City" Type="nvarchar" MaxLength="40" />
+    <Property Name="State" Type="nvarchar" MaxLength="40" />
+    <Property Name="Country" Type="nvarchar" MaxLength="40" />
+    <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="24" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="24" />
+    <Property Name="Email" Type="nvarchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="Genre">
+    <Key>
+      <PropertyRef Name="GenreId" />
+    </Key>
+    <Property Name="GenreId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="120" />
+  </EntityType>
+  <EntityType Name="Invoice">
+    <Key>
+      <PropertyRef Name="InvoiceId" />
+    </Key>
+    <Property Name="InvoiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="InvoiceDate" Type="datetime" Nullable="false" />
+    <Property Name="BillingAddress" Type="nvarchar" MaxLength="70" />
+    <Property Name="BillingCity" Type="nvarchar" MaxLength="40" />
+    <Property Name="BillingState" Type="nvarchar" MaxLength="40" />
+    <Property Name="BillingCountry" Type="nvarchar" MaxLength="40" />
+    <Property Name="BillingPostalCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Total" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InvoiceLine">
+    <Key>
+      <PropertyRef Name="InvoiceLineId" />
+    </Key>
+    <Property Name="InvoiceLineId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceId" Type="int" Nullable="false" />
+    <Property Name="TrackId" Type="int" Nullable="false" />
+    <Property Name="UnitPrice" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'Chinook.dbo.InvoiceStatistics' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="InvoiceStatistics">
+          <Property Name="GenreId" Type="int" />
+          <Property Name="TrackId" Type="int" />
+          <Property Name="TotalTrackCharge" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="TimeCreated" Type="datetime" />
+        </EntityType>-->
+  <EntityType Name="MediaType">
+    <Key>
+      <PropertyRef Name="MediaTypeId" />
+    </Key>
+    <Property Name="MediaTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="120" />
+  </EntityType>
+  <EntityType Name="Playlist">
+    <Key>
+      <PropertyRef Name="PlaylistId" />
+    </Key>
+    <Property Name="PlaylistId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="120" />
+  </EntityType>
+  <EntityType Name="PlaylistTrack">
+    <Key>
+      <PropertyRef Name="PlaylistId" />
+      <PropertyRef Name="TrackId" />
+    </Key>
+    <Property Name="PlaylistId" Type="int" Nullable="false" />
+    <Property Name="TrackId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Track">
+    <Key>
+      <PropertyRef Name="TrackId" />
+    </Key>
+    <Property Name="TrackId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="AlbumId" Type="int" />
+    <Property Name="MediaTypeId" Type="int" Nullable="false" />
+    <Property Name="GenreId" Type="int" />
+    <Property Name="Composer" Type="nvarchar" MaxLength="220" />
+    <Property Name="Milliseconds" Type="int" Nullable="false" />
+    <Property Name="Bytes" Type="int" />
+    <Property Name="UnitPrice" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AlbumArtistId">
+    <End Role="Artist" Type="Self.Artist" Multiplicity="1" />
+    <End Role="Album" Type="Self.Album" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artist">
+        <PropertyRef Name="ArtistId" />
+      </Principal>
+      <Dependent Role="Album">
+        <PropertyRef Name="ArtistId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerSupportRepId">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="SupportRepId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeReportsTo">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Employee1" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="Employee1">
+        <PropertyRef Name="ReportsTo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InvoiceCustomerId">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="Invoice">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InvoiceLineInvoiceId">
+    <End Role="Invoice" Type="Self.Invoice" Multiplicity="1" />
+    <End Role="InvoiceLine" Type="Self.InvoiceLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Invoice">
+        <PropertyRef Name="InvoiceId" />
+      </Principal>
+      <Dependent Role="InvoiceLine">
+        <PropertyRef Name="InvoiceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InvoiceLineTrackId">
+    <End Role="Track" Type="Self.Track" Multiplicity="1" />
+    <End Role="InvoiceLine" Type="Self.InvoiceLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Track">
+        <PropertyRef Name="TrackId" />
+      </Principal>
+      <Dependent Role="InvoiceLine">
+        <PropertyRef Name="TrackId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlaylistTrackPlaylistId">
+    <End Role="Playlist" Type="Self.Playlist" Multiplicity="1" />
+    <End Role="PlaylistTrack" Type="Self.PlaylistTrack" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Playlist">
+        <PropertyRef Name="PlaylistId" />
+      </Principal>
+      <Dependent Role="PlaylistTrack">
+        <PropertyRef Name="PlaylistId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlaylistTrackTrackId">
+    <End Role="Track" Type="Self.Track" Multiplicity="1" />
+    <End Role="PlaylistTrack" Type="Self.PlaylistTrack" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Track">
+        <PropertyRef Name="TrackId" />
+      </Principal>
+      <Dependent Role="PlaylistTrack">
+        <PropertyRef Name="TrackId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TrackAlbumId">
+    <End Role="Album" Type="Self.Album" Multiplicity="0..1" />
+    <End Role="Track" Type="Self.Track" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Album">
+        <PropertyRef Name="AlbumId" />
+      </Principal>
+      <Dependent Role="Track">
+        <PropertyRef Name="AlbumId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TrackGenreId">
+    <End Role="Genre" Type="Self.Genre" Multiplicity="0..1" />
+    <End Role="Track" Type="Self.Track" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Genre">
+        <PropertyRef Name="GenreId" />
+      </Principal>
+      <Dependent Role="Track">
+        <PropertyRef Name="GenreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TrackMediaTypeId">
+    <End Role="MediaType" Type="Self.MediaType" Multiplicity="1" />
+    <End Role="Track" Type="Self.Track" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MediaType">
+        <PropertyRef Name="MediaTypeId" />
+      </Principal>
+      <Dependent Role="Track">
+        <PropertyRef Name="MediaTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ChinookModelStoreContainer">
+    <EntitySet Name="Album" EntityType="Self.Album" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Artist" EntityType="Self.Artist" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Genre" EntityType="Self.Genre" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InvoiceLine" EntityType="Self.InvoiceLine" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MediaType" EntityType="Self.MediaType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Playlist" EntityType="Self.Playlist" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PlaylistTrack" EntityType="Self.PlaylistTrack" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Track" EntityType="Self.Track" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AlbumArtistId" Association="Self.FK_AlbumArtistId">
+      <End Role="Artist" EntitySet="Artist" />
+      <End Role="Album" EntitySet="Album" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerSupportRepId" Association="Self.FK_CustomerSupportRepId">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeReportsTo" Association="Self.FK_EmployeeReportsTo">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Employee1" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InvoiceCustomerId" Association="Self.FK_InvoiceCustomerId">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Invoice" EntitySet="Invoice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InvoiceLineInvoiceId" Association="Self.FK_InvoiceLineInvoiceId">
+      <End Role="Invoice" EntitySet="Invoice" />
+      <End Role="InvoiceLine" EntitySet="InvoiceLine" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InvoiceLineTrackId" Association="Self.FK_InvoiceLineTrackId">
+      <End Role="Track" EntitySet="Track" />
+      <End Role="InvoiceLine" EntitySet="InvoiceLine" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlaylistTrackPlaylistId" Association="Self.FK_PlaylistTrackPlaylistId">
+      <End Role="Playlist" EntitySet="Playlist" />
+      <End Role="PlaylistTrack" EntitySet="PlaylistTrack" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlaylistTrackTrackId" Association="Self.FK_PlaylistTrackTrackId">
+      <End Role="Track" EntitySet="Track" />
+      <End Role="PlaylistTrack" EntitySet="PlaylistTrack" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TrackAlbumId" Association="Self.FK_TrackAlbumId">
+      <End Role="Album" EntitySet="Album" />
+      <End Role="Track" EntitySet="Track" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TrackGenreId" Association="Self.FK_TrackGenreId">
+      <End Role="Genre" EntitySet="Genre" />
+      <End Role="Track" EntitySet="Track" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TrackMediaTypeId" Association="Self.FK_TrackMediaTypeId">
+      <End Role="MediaType" EntitySet="MediaType" />
+      <End Role="Track" EntitySet="Track" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
