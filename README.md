@@ -1,6 +1,6 @@
 # MusicStoreApp
 
-In the context of bachelors degree, I was asked to develop a web application in Visual C# (ASP.NET Web Application) using the Model View Controller design architecture in the Visual Studio development environment. The application should implement the following functionality.
+In the context of my bachelors degree, I was asked to develop a web application in Visual C# (ASP.NET Web Application) using the Model View Controller design architecture in the Visual Studio development environment. The application should implement the following functionality.
 
 ## Data management:
 Record store data should be fully managed through the respective forms.
