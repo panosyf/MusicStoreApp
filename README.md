@@ -2,13 +2,13 @@
 
 In the context of bachelors degree, I was asked to develop a web application in Visual C# (ASP.NET Web Application) using the Model View Controller design architecture in the Visual Studio development environment. The application should implement the following functionality.
 
-Data management
+## Data management:
 Record store data should be fully managed through the respective forms.
     1. The application should fully manage (insert, delete, edit) the data of all tables.
     2. Specifically for orders (invoices) to create stored procedures that will import, modify and delete orders. The orders are designed with the logic master – detail (invoice – invoiceLine). In stored procedures, use transactions to perform the above actions.
     3. You can optionally create stored procedures for all CRUD (Create, Read, Update, Delete) operations on a table using transactions.
 
-Create reports
+## Create reports:
 Beyond the administrative part, the following questions should be answered through the application by creating the corresponding reports:
     1. Retrieve the artists whose records are among the top X in sales for a specific time period. The user should define the following criteria for the creation of the report: Number X, Time interval Date From - To.
     2. Find the top 10 songs in customer preferences for a specific time period.
